@@ -10,6 +10,26 @@
     
         <ui:define name="body">
             
+<!--            login form-->
+
+ <h:form>
+               
+                <p:panel header="Login Form">
+                    <div align="center">
+                    <h:panelGrid columnClasses="2">
+                         <p:messages />
+                        <h:outputText value="Email Address :" styleClass="requiredLbl"/>
+                        <h:inputText id="emailAddr" label="Email Address" value="" required="true" requiredMessage="Please enter Email Address"/>
+                        <h:outputText value="Password :" styleClass="requiredLbl"/>
+                        <h:inputSecret id="password" label="Password" value="" required="true" requiredMessage="Please enter Password"/>
+                        <h:panelGroup/>
+                        <p:commandButton value="Submit" ajax="false"/>
+                    </h:panelGrid>
+                     </div>
+                </p:panel>
+            </h:form>
+
+<!--            login form-->
            
         </ui:define>
     
