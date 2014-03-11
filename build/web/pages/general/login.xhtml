@@ -13,20 +13,44 @@
 <!--            login form-->
 
  <h:form>
-               
-                <p:panel header="Login Form">
-                    <div align="center">
-                    <h:panelGrid columnClasses="2">
-                         <p:messages />
-                        <h:outputText value="Email Address :" styleClass="requiredLbl"/>
-                        <h:inputText id="emailAddr" label="Email Address" value="" required="true" requiredMessage="Please enter Email Address"/>
-                        <h:outputText value="Password :" styleClass="requiredLbl"/>
-                        <h:inputSecret id="password" label="Password" value="" required="true" requiredMessage="Please enter Password"/>
-                        <h:panelGroup/>
-                        <p:commandButton value="Submit" ajax="false"/>
-                    </h:panelGrid>
-                     </div>
+     <div align="center">
+         <p:panel id="panel" style="margin-bottom:10px; width: 500px;">
+
+                   
+             <h:messages style="color: #D20005"/>
+        <p:panel>
+            <f:facet name="header">Login</f:facet>
+
+            <p>Please login here</p>
+
+            <div class="dialog">
+                <h:panelGrid columns="2" rowClasses="prop" columnClasses="name,value">
+                    <h:outputLabel for="username" style="font-size: smaller;color: #008cd9">Username</h:outputLabel>
+                    <h:inputText id="username" value="#{loginMB.username}" required="true" requiredMessage="Please enter User name"/>
+                    <h:outputLabel for="password" value="#{loginMB.password}" style="font-size: smaller;color: #008cd9" >Password</h:outputLabel>
+                    <h:inputSecret id="password" value="" required="true" requiredMessage="Please enter Password"/>
+<!--                    <h:outputLabel for="rememberMe" style="font-size: smaller; color: #008cd9">Remember me</h:outputLabel>
+                    <h:selectBooleanCheckbox id="rememberMe" value=""/>-->
+                </h:panelGrid>
+                <h:outputText value="#{loginMB.errormessage}" style="color:#D20005"/>
+            </div>
+
+            <p>
+              <i>Note - </i> You may login with the username 'admin' and a blank password.
+            </p>
+
+        </p:panel>
+
+        <div class="actionButtons">
+            <h:commandButton id="submit" value="Login"/>
+        </div>
+
+    
+     
                 </p:panel>
+         <h:outputText value="#{loginMB.errormessage}" style="color:#D20005"/>
+                   
+                   </div>
             </h:form>
 
 <!--            login form-->
