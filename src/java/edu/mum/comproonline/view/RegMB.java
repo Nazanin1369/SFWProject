@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package edu.mum.comproonline.view;
-import edu.mum.comproonline.control.RegControlBean;
+
+import edu.mum.comproonline.control.RegistrationControlBean;
 import java.util.Date;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -23,7 +24,7 @@ import javax.validation.constraints.Pattern;
 @RequestScoped
 public class RegMB {
     @EJB
-    private RegControlBean myRegContBean;
+    private RegistrationControlBean myRegContBean;
     
     private String firstName;
     private String middleName;
@@ -39,11 +40,11 @@ public class RegMB {
     @Temporal(TemporalType.DATE)
     private Date creationDate;
 
-    public RegControlBean getMyRegContBean() {
+    public RegistrationControlBean getMyRegContBean() {
         return myRegContBean;
     }
 
-    public void setMyRegContBean(RegControlBean myRegContBean) {
+    public void setMyRegContBean(RegistrationControlBean myRegContBean) {
         this.myRegContBean = myRegContBean;
     }
 
