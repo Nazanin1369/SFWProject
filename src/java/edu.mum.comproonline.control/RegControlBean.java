@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.mum.comproonline.control;
+package edu.mum.comproonline;
 
 import edu.mum.comproonline.model.UserTbl;
 import edu.mum.comproonline.model.UserDaoBean;
