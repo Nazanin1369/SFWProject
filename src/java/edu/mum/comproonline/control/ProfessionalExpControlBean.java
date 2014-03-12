@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 
+
 package edu.mum.comproonline.control;
 
 
 import edu.mum.comproonline.model.AbstractFacade;
 import javax.ejb.Stateless;
-import edu.mum.comproonline.model.ApplicationTbl;
+import edu.mum.comproonline.model.ProfessionalexpTbl;
 import javax.persistence.PersistenceContext;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -19,13 +20,13 @@ import javax.persistence.Query;
  * @author Nazanin
  */
 @Stateless
-public class ApplicationControlBean extends AbstractFacade<ApplicationTbl>{
+public class ProfessionalExpControlBean extends AbstractFacade<ProfessionalexpTbl>{
 
    @PersistenceContext(unitName = "ComproPU")
    private EntityManager em;
-   public ApplicationControlBean()
+   public ProfessionalExpControlBean()
    {
-       super(ApplicationTbl.class);
+       super(ProfessionalexpTbl.class);
    }
    
    @Override
@@ -34,18 +35,16 @@ public class ApplicationControlBean extends AbstractFacade<ApplicationTbl>{
        return em;
    }
    
-   public Integer getApplicationID(Integer userID)
+   
+   public ProfessionalexpTbl getPersonalData(Integer appID)
    {
-       String queryString = "select c from ApplicationTbl c where c.userID = :userID";
+       String queryString = "select c from ProfessionalexpTbl c where c.appID = :appID";
        Query query = em.createQuery(queryString);
        query.setParameter(":appID", query);
        Object result = query.getSingleResult();
-       ApplicationTbl app = (ApplicationTbl)result;
-       Integer appID = app.getAppID();
-       return appID; 
+       return (ProfessionalexpTbl)result;
+     
    }
-   
-   
    
    
 }

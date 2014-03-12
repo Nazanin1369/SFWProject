@@ -9,7 +9,7 @@ package edu.mum.comproonline.control;
 
 import edu.mum.comproonline.model.AbstractFacade;
 import javax.ejb.Stateless;
-import edu.mum.comproonline.model.ApplicationTbl;
+import edu.mum.comproonline.model.PersonaldataTbl;
 import javax.persistence.PersistenceContext;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -19,13 +19,13 @@ import javax.persistence.Query;
  * @author Nazanin
  */
 @Stateless
-public class ApplicationControlBean extends AbstractFacade<ApplicationTbl>{
+public class PersonalDataControlBean extends AbstractFacade<PersonaldataTbl>{
 
    @PersistenceContext(unitName = "ComproPU")
    private EntityManager em;
-   public ApplicationControlBean()
+   public PersonalDataControlBean()
    {
-       super(ApplicationTbl.class);
+       super(PersonaldataTbl.class);
    }
    
    @Override
@@ -34,18 +34,16 @@ public class ApplicationControlBean extends AbstractFacade<ApplicationTbl>{
        return em;
    }
    
-   public Integer getApplicationID(Integer userID)
+   
+   public PersonaldataTbl getPersonalData(Integer appID)
    {
-       String queryString = "select c from ApplicationTbl c where c.userID = :userID";
+       String queryString = "select c from PersonaldataTbl c where c.appID = :appID";
        Query query = em.createQuery(queryString);
        query.setParameter(":appID", query);
        Object result = query.getSingleResult();
-       ApplicationTbl app = (ApplicationTbl)result;
-       Integer appID = app.getAppID();
-       return appID; 
+       return (PersonaldataTbl)result;
+     
    }
-   
-   
    
    
 }
