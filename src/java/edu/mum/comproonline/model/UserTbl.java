@@ -7,9 +7,8 @@
 package edu.mum.comproonline.model;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +16,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -67,23 +67,25 @@ public class UserTbl implements Serializable {
     private String userLastName;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 50)
     @Column(name = "userPassword")
     private String userPassword;
     @Column(name = "userLastLoginDate")
-    private Integer userLastLoginDate;
+    @Temporal(TemporalType.DATE)
+    private Date userLastLoginDate;
     @Basic(optional = false)
     @NotNull
     @Column(name = "userCreationDate")
-    private int userCreationDate;
+    @Temporal(TemporalType.DATE)
+    private Date userCreationDate;
     @Basic(optional = false)
     @NotNull
     @Column(name = "userRole")
     private int userRole;
     @Column(name = "userStatus")
     private Integer userStatus;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "appUserID")
-    private Collection<ApplicationTbl> applicationTblCollection;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "appUserID")
+//    private Collection<ApplicationTbl> applicationTblCollection;
 
     public UserTbl() {
     }
@@ -92,7 +94,7 @@ public class UserTbl implements Serializable {
         this.userID = userID;
     }
 
-    public UserTbl(Integer userID, String userEmail, String userFirstName, String userLastName, String userPassword, int userCreationDate, int userRole) {
+    public UserTbl(Integer userID, String userEmail, String userFirstName, String userLastName, String userPassword, Date userCreationDate, int userRole) {
         this.userID = userID;
         this.userEmail = userEmail;
         this.userFirstName = userFirstName;
@@ -150,19 +152,19 @@ public class UserTbl implements Serializable {
         this.userPassword = userPassword;
     }
 
-    public Integer getUserLastLoginDate() {
+    public Date getUserLastLoginDate() {
         return userLastLoginDate;
     }
 
-    public void setUserLastLoginDate(Integer userLastLoginDate) {
+    public void setUserLastLoginDate(Date userLastLoginDate) {
         this.userLastLoginDate = userLastLoginDate;
     }
 
-    public int getUserCreationDate() {
+    public Date getUserCreationDate() {
         return userCreationDate;
     }
 
-    public void setUserCreationDate(int userCreationDate) {
+    public void setUserCreationDate(Date userCreationDate) {
         this.userCreationDate = userCreationDate;
     }
 
@@ -182,13 +184,13 @@ public class UserTbl implements Serializable {
         this.userStatus = userStatus;
     }
 
-    public Collection<ApplicationTbl> getApplicationTblCollection() {
-        return applicationTblCollection;
-    }
-
-    public void setApplicationTblCollection(Collection<ApplicationTbl> applicationTblCollection) {
-        this.applicationTblCollection = applicationTblCollection;
-    }
+//    public Collection<ApplicationTbl> getApplicationTblCollection() {
+//        return applicationTblCollection;
+//    }
+//
+//    public void setApplicationTblCollection(Collection<ApplicationTbl> applicationTblCollection) {
+//        this.applicationTblCollection = applicationTblCollection;
+//    }
 
     @Override
     public int hashCode() {
