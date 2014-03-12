@@ -42,7 +42,7 @@ public class CoursesTbl implements Serializable {
     private Integer courseID;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 255)
     @Column(name = "courseType")
     private String courseType;
     @Basic(optional = false)
