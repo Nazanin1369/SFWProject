@@ -17,7 +17,7 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class UserDaoBean {
 
-    @PersistenceContext(unitName = "SWEMYPRJPU")
+    @PersistenceContext(unitName = "ComproPU")
     private EntityManager em;
     //private EntityManagerFactory emf = Persistence.createEntityManagerFactory("SWEMYPRJPU");
     //private EntityManager em = emf.createEntityManager();
