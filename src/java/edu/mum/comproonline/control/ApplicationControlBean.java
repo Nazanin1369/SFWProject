@@ -19,11 +19,11 @@ import javax.persistence.Query;
  * @author Nazanin
  */
 @Stateless
-public class ApplicationTblFacade extends AbstractFacade<ApplicationTbl>{
+public class ApplicationControlBean extends AbstractFacade<ApplicationTbl>{
 
    @PersistenceContext(unitName = "ComproPU")
    private EntityManager em;
-   public ApplicationTblFacade()
+   public ApplicationControlBean()
    {
        super(ApplicationTbl.class);
    }
