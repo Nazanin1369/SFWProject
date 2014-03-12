@@ -144,6 +144,7 @@ public class RegMB {
             return null;
         }
         myRegContBean.saveRegInfo(this);
+      
         return "regConfirmation.xhtml";
     }
 
